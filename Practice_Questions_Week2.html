@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS Practice Questions</title>
+
+    <style>
+        /* Question 1: Style a webpage with background color and custom fonts. */
+        body {
+            background-color: lightblue;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        /* Question 2: Use Flexbox to center items both vertically and horizontally. */
+        .flex-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 300px;
+        }
+
+        .flex-item {
+            background-color: black;
+            color: white;
+            padding: 30px;
+        }
+
+        /* Question 3: Create a responsive 3-column layout using CSS Grid. */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .grid-item {
+            background-color: lightgreen;
+            padding: 30px;
+            text-align: center;
+        }
+
+        /* Question 4: Add hover effects to buttons and links. */
+        button {
+            padding: 10px 20px;
+            background-color: blue;
+            color: white;
+            border: none;
+        }
+
+        button:hover {
+            background-color: green;
+            transform: scale(1.1);
+        }
+
+        a {
+            color: blue;
+        }
+
+        a:hover {
+            color: red;
+        }
+
+        @media (max-width: 600px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Question 1: Style a webpage with background color and custom fonts. -->
+    <h1>CSS Styling Practice</h1>
+    <p>This webpage has a background color and custom font.</p>
+
+    <!-- Question 2: Use Flexbox to center items both vertically and horizontally. -->
+    <div class="flex-container">
+        <div class="flex-item">Centered Item</div>
+    </div>
+
+    <!-- Question 3: Create a responsive 3-column layout using CSS Grid. -->
+    <div class="grid-container">
+        <div class="grid-item">Column 1</div>
+        <div class="grid-item">Column 2</div>
+        <div class="grid-item">Column 3</div>
+    </div>
+
+    <!-- Question 4: Add hover effects to buttons and links. -->
+    <button>Hover Me</button>
+    <br><br>
+    <a href="#">Hover Over This Link</a>
+
+</body>
+</html>
