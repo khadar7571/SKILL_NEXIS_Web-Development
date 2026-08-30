@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Week 4 JavaScript Practice</title>
+</head>
+<body>
+
+    <h2>Week 4 JavaScript Practice Questions</h2>
+
+    <!-- 1. Store user name in localStorage and display it on reload. -->
+
+    <h3>1. Local Storage</h3>
+
+    <input type="text" id="name" placeholder="Enter your name">
+    <button onclick="saveName()">Save Name</button>
+
+    <p id="displayName"></p>
+
+    <script>
+        function saveName() {
+            let name = document.getElementById("name").value;
+
+            localStorage.setItem("username", name);
+
+            document.getElementById("displayName").innerHTML =
+                "Name: " + name;
+        }
+
+        let savedName = localStorage.getItem("username");
+
+        if (savedName) {
+            document.getElementById("displayName").innerHTML =
+                "Welcome back, " + savedName;
+        }
+    </script>
+
+
+    <!-- 2. Validate an email field using JS. -->
+
+    <h3>2. Email Validation</h3>
+
+    <input type="text" id="email" placeholder="Enter email">
+    <button onclick="validateEmail()">Validate</button>
+
+    <p id="emailMessage"></p>
+
+    <script>
+        function validateEmail() {
+            let email = document.getElementById("email").value;
+            let pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (pattern.test(email)) {
+                document.getElementById("emailMessage").innerHTML =
+                    "Valid Email";
+            } else {
+                document.getElementById("emailMessage").innerHTML =
+                    "Invalid Email";
+            }
+        }
+    </script>
+
+
+    <!-- 3. Fetch data from a free API (e.g., quotes API) and display on page. -->
+
+    <h3>3. Fetch Data from API</h3>
+
+    <button onclick="getQuote()">Get Quote</button>
+
+    <p id="quote"></p>
+
+    <script>
+        function getQuote() {
+            fetch("https://dummyjson.com/quotes/random")
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("quote").innerHTML =
+                        data.quote + "<br><b>- " + data.author + "</b>";
+                })
+                .catch(error => {
+                    document.getElementById("quote").innerHTML =
+                        "Error fetching quote";
+                });
+        }
+    </script>
+
+
+    <!-- 4. Use arrow functions to filter an array of numbers > 50. -->
+
+    <h3>4. Arrow Function</h3>
+
+    <p id="numbers"></p>
+
+    <script>
+        let numbers = [10, 25, 55, 70, 40, 85, 90, 30];
+
+        let result = numbers.filter(number => number > 50);
+
+        document.getElementById("numbers").innerHTML =
+            "Numbers greater than 50: " + result;
+    </script>l
+
+</body>
+</html>
