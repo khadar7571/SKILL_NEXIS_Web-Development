@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Practice Questions</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 30px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        #colorButton {
+            background-color: blue;
+            color: white;
+            border: none;
+        }
+
+        input {
+            padding: 8px;
+            margin: 5px;
+        }
+
+        .calculator {
+            margin: 20px auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Question 1: Write a JS function to check even or odd numbers. -->
+    <h2>Even or Odd</h2>
+
+    <input type="number" id="number">
+    <button onclick="checkEvenOdd()">Check</button>
+
+    <p id="evenOddResult"></p>
+
+
+    <!-- Question 2: Create a button that changes color on click. -->
+    <h2>Change Button Color</h2>
+
+    <button id="colorButton" onclick="changeColor()">Click Me</button>
+
+
+    <!-- Question 3: Build a simple calculator using HTML + JS. -->
+    <h2>Simple Calculator</h2>
+
+    <div class="calculator">
+        <input type="number" id="num1" placeholder="First number">
+        <input type="number" id="num2" placeholder="Second number">
+        <br>
+
+        <button onclick="calculate('+')">+</button>
+        <button onclick="calculate('-')">-</button>
+        <button onclick="calculate('*')">*</button>
+        <button onclick="calculate('/')">/</button>
+
+        <p id="calculatorResult"></p>
+    </div>
+
+
+    <!-- Question 4: Display today's date dynamically on webpage. -->
+    <h2>Today's Date</h2>
+
+    <p id="date"></p>
+
+
+    <script>
+
+        // Question 1: Write a JS function to check even or odd numbers.
+        function checkEvenOdd() {
+            let number = document.getElementById("number").value;
+
+            if (number % 2 == 0) {
+                document.getElementById("evenOddResult").innerHTML = "Even Number";
+            } else {
+                document.getElementById("evenOddResult").innerHTML = "Odd Number";
+            }
+        }
+
+
+        // Question 2: Create a button that changes color on click.
+        function changeColor() {
+            document.getElementById("colorButton").style.backgroundColor = "green";
+        }
+
+
+        // Question 3: Build a simple calculator using HTML + JS.
+        function calculate(operator) {
+            let num1 = Number(document.getElementById("num1").value);
+            let num2 = Number(document.getElementById("num2").value);
+            let result;
+
+            if (operator == "+") {
+                result = num1 + num2;
+            } else if (operator == "-") {   
+                result = num1 - num2;
+            } else if (operator == "*") {
+                result = num1 * num2;
+            } else if (operator == "/") {
+                result = num1 / num2;
+            }
+
+            document.getElementById("calculatorResult").innerHTML = "Result: " + result;
+        }
+
+
+        // Question 4: Display today's date dynamically on webpage.
+        let today = new Date();
+
+        document.getElementById("date").innerHTML =
+            today.toLocaleDateString();
+
+    </script>
+
+</body>
+</html>

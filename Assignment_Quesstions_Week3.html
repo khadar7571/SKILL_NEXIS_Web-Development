@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather App</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: lightblue;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .card {
+            background-color: white;
+            width: 350px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px gray;
+        }
+
+        input {
+            padding: 12px;
+            width: 200px;
+            border: 1px solid gray;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 12px 20px;
+            margin-left: 5px;
+            background-color: blue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: darkblue;
+        }
+
+        #weatherResult {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Assignment 1: Weather App using OpenWeatherMap API -->
+
+    <div class="card">
+
+        <h1>Weather App</h1>
+
+        <!-- Input: City name -->
+        <input type="text" id="city" placeholder="Enter city name">
+
+        <button onclick="getWeather()">Get Weather</button>
+
+        <!-- Output: Current temperature, humidity, condition -->
+        <div id="weatherResult"></div>
+
+    </div>
+
+
+    <script>
+
+        // Assignment 1: Weather App using OpenWeatherMap API
+
+        let apiKey = "YOUR_API_KEY";
+
+
+        // Use Fetch API for data
+        function getWeather() {
+
+            let city = document.getElementById("city").value;
+
+            let url =
+                "https://api.openweathermap.org/data/2.5/weather?q="
+                + city
+                + "&appid="
+                + apiKey
+                + "&units=metric";
+
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+
+                    if (data.cod == 200) {
+
+                        let temperature = data.main.temp;
+                        let humidity = data.main.humidity;
+                        let condition = data.weather[0].description;
+
+                        document.getElementById("weatherResult").innerHTML =
+                            "<h2>" + data.name + "</h2>" +
+                            "<p>Temperature: " + temperature + " °C</p>" +
+                            "<p>Humidity: " + humidity + "%</p>" +
+                            "<p>Condition: " + condition + "</p>";
+
+                    } else {
+
+                        document.getElementById("weatherResult").innerHTML =
+                            "<p>City not found</p>";
+                    }
+                })
+                .catch(error => {
+
+                    document.getElementById("weatherResult").innerHTML =
+                        "<p>Something went wrong</p>";
+                });
+        }
+
+    </script>
+
+</body>
+</html>
